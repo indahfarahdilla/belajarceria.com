@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Ceria TK — Angka, Huruf, Warna</title>
+    <meta
+      name="description"
+      content="Website pembelajaran TK bertema colorful dengan suara: pengenalan angka, huruf, warna, serta game/latihan setelah belajar."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-shapes" aria-hidden="true">
+      <span class="shape s1"></span>
+      <span class="shape s2"></span>
+      <span class="shape s3"></span>
+      <span class="shape s4"></span>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">Belajar Ceria TK</div>
+          <div class="brand-subtitle">Angka • Huruf • Warna + Suara + Latihan</div>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <button id="btnSpeakHint" class="btn ghost" type="button" title="Contoh suara">
+          Coba Suara
+        </button>
+        <button id="btnOpenSettings" class="btn" type="button">Pengaturan Suara</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Belajar jadi lebih mudah dengan <span class="hl">suara</span> dan <span class="hl">warna ceria</span>!</h1>
+          <p class="lead">
+            Klik kartu-kartu untuk mendengar pelafalan. Setelah belajar, coba <strong>latihan</strong> untuk
+            menguji kemampuan.
+          </p>
+          <div class="pill-row" role="list" aria-label="Petunjuk cepat">
+            <div class="pill" role="listitem">1) Pilih materi</div>
+            <div class="pill" role="listitem">2) Klik kartu untuk dengar</div>
+            <div class="pill" role="listitem">3) Mulai latihan</div>
+          </div>
+          <div class="stickers" aria-hidden="true">
+            <div class="sticker" style="--r:-6deg">🔊</div>
+            <div class="sticker" style="--r:8deg">🎮</div>
+            <div class="sticker" style="--r:-10deg">✨</div>
+            <div class="sticker" style="--r:10deg">🎨</div>
+            <div class="sticker" style="--r:-8deg">🚀</div>
+          </div>
+        </div>
+        <div class="mascot" aria-hidden="true">
+          <div class="mascot-face"></div>
+          <div class="mascot-badge">Ayo!</div>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Materi belajar">
+        <button class="tab active" data-tab="angka" type="button">Angka</button>
+        <button class="tab" data-tab="huruf" type="button">Huruf</button>
+        <button class="tab" data-tab="warna" type="button">Warna</button>
+      </nav>
+
+      <!-- PANEL: ANGKA -->
+      <section id="panel-angka" class="panel active" aria-labelledby="tab-angka">
+        <div class="panel-head">
+          <div>
+            <h2>Materi: Pengenalan Angka</h2>
+            <p class="muted">Klik angka untuk mendengar: “satu, dua, tiga...”</p>
+          </div>
+          <div class="panel-actions">
+            <button class="btn secondary" data-action="speakAll" data-topic="angka" type="button">
+              Dengarkan Semua
+            </button>
+            <button class="btn" data-action="startQuiz" data-topic="angka" type="button">Kuis Cepat</button>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="big-card" id="bigDisplay-angka" aria-live="polite">
+            <div class="big-title">Klik salah satu angka</div>
+            <div class="big-value">—</div>
+            <div class="big-caption">Aku akan menyebutkannya!</div>
+          </div>
+          <div class="grid" id="grid-angka" aria-label="Kartu angka"></div>
+        </div>
+        <div class="arcade" aria-label="Pilih game angka">
+          <div class="arcade-head">
+            <h3>Game ala Educandy</h3>
+            <p class="muted">Pilih permainan untuk latihan setelah belajar.</p>
+          </div>
+          <div class="game-tiles">
+            <button class="game-tile t1" type="button" data-game="quiz" data-topic="angka">
+              <div class="gt-emoji" aria-hidden="true">⚡</div>
+              <div class="gt-title">Kuis Cepat</div>
+              <div class="gt-sub">Pilih jawaban yang benar</div>
+            </button>
+            <button class="game-tile t2" type="button" data-game="match" data-topic="angka">
+              <div class="gt-emoji" aria-hidden="true">🧩</div>
+              <div class="gt-title">Cocokkan Pasangan</div>
+              <div class="gt-sub">Angka ↔ nama angka</div>
+            </button>
+            <button class="game-tile t3" type="button" data-game="listen" data-topic="angka">
+              <div class="gt-emoji" aria-hidden="true">🔊</div>
+              <div class="gt-title">Tebak dari Suara</div>
+              <div class="gt-sub">Dengar lalu pilih</div>
+            </button>
+          </div>
+        </div>
+        <div class="quiz" id="quiz-angka" hidden></div>
+      </section>
+
+      <!-- PANEL: HURUF -->
+      <section id="panel-huruf" class="panel" aria-labelledby="tab-huruf">
+        <div class="panel-head">
+          <div>
+            <h2>Materi: Pengenalan Huruf</h2>
+            <p class="muted">Klik huruf untuk mendengar pelafalannya.</p>
+          </div>
+          <div class="panel-actions">
+            <button class="btn secondary" data-action="speakAll" data-topic="huruf" type="button">
+              Dengarkan Semua
+            </button>
+            <button class="btn" data-action="startQuiz" data-topic="huruf" type="button">Kuis Cepat</button>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="big-card" id="bigDisplay-huruf" aria-live="polite">
+            <div class="big-title">Klik salah satu huruf</div>
+            <div class="big-value">—</div>
+            <div class="big-caption">Aku akan menyebutkannya!</div>
+          </div>
+          <div class="grid" id="grid-huruf" aria-label="Kartu huruf"></div>
+        </div>
+        <div class="arcade" aria-label="Pilih game huruf">
+          <div class="arcade-head">
+            <h3>Game ala Educandy</h3>
+            <p class="muted">Pilih permainan untuk latihan setelah belajar.</p>
+          </div>
+          <div class="game-tiles">
+            <button class="game-tile t1" type="button" data-game="quiz" data-topic="huruf">
+              <div class="gt-emoji" aria-hidden="true">⚡</div>
+              <div class="gt-title">Kuis Cepat</div>
+              <div class="gt-sub">Pilih jawaban yang benar</div>
+            </button>
+            <button class="game-tile t2" type="button" data-game="match" data-topic="huruf">
+              <div class="gt-emoji" aria-hidden="true">🧩</div>
+              <div class="gt-title">Cocokkan Pasangan</div>
+              <div class="gt-sub">Huruf ↔ bunyi huruf</div>
+            </button>
+            <button class="game-tile t3" type="button" data-game="listen" data-topic="huruf">
+              <div class="gt-emoji" aria-hidden="true">🔊</div>
+              <div class="gt-title">Tebak dari Suara</div>
+              <div class="gt-sub">Dengar lalu pilih</div>
+            </button>
+          </div>
+        </div>
+        <div class="quiz" id="quiz-huruf" hidden></div>
+      </section>
+
+      <!-- PANEL: WARNA -->
+      <section id="panel-warna" class="panel" aria-labelledby="tab-warna">
+        <div class="panel-head">
+          <div>
+            <h2>Materi: Pengenalan Warna</h2>
+            <p class="muted">Klik warna untuk mendengar namanya.</p>
+          </div>
+          <div class="panel-actions">
+            <button class="btn secondary" data-action="speakAll" data-topic="warna" type="button">
+              Dengarkan Semua
+            </button>
+            <button class="btn" data-action="startQuiz" data-topic="warna" type="button">Kuis Cepat</button>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="big-card" id="bigDisplay-warna" aria-live="polite">
+            <div class="big-title">Klik salah satu warna</div>
+            <div class="big-value">—</div>
+            <div class="big-caption">Aku akan menyebutkannya!</div>
+          </div>
+          <div class="grid" id="grid-warna" aria-label="Kartu warna"></div>
+        </div>
+        <div class="arcade" aria-label="Pilih game warna">
+          <div class="arcade-head">
+            <h3>Game ala Educandy</h3>
+            <p class="muted">Pilih permainan untuk latihan setelah belajar.</p>
+          </div>
+          <div class="game-tiles">
+            <button class="game-tile t1" type="button" data-game="quiz" data-topic="warna">
+              <div class="gt-emoji" aria-hidden="true">⚡</div>
+              <div class="gt-title">Kuis Cepat</div>
+              <div class="gt-sub">Pilih jawaban yang benar</div>
+            </button>
+            <button class="game-tile t2" type="button" data-game="match" data-topic="warna">
+              <div class="gt-emoji" aria-hidden="true">🧩</div>
+              <div class="gt-title">Cocokkan Pasangan</div>
+              <div class="gt-sub">Warna ↔ nama warna</div>
+            </button>
+            <button class="game-tile t3" type="button" data-game="listen" data-topic="warna">
+              <div class="gt-emoji" aria-hidden="true">🔊</div>
+              <div class="gt-title">Tebak dari Suara</div>
+              <div class="gt-sub">Dengar lalu pilih</div>
+            </button>
+          </div>
+        </div>
+        <div class="quiz" id="quiz-warna" hidden></div>
+      </section>
+
+      <section class="footer-note">
+        <h3>Tips untuk Orang Tua/Guru</h3>
+        <ul>
+          <li>Gunakan tombol <strong>Pengaturan Suara</strong> bila pelafalan atau kecepatannya perlu disesuaikan.</li>
+          <li>Jika suara tidak keluar, pastikan perangkat tidak sedang mute dan browser mengizinkan audio.</li>
+          <li>Latihan bisa diulang kapan saja untuk memperkuat ingatan anak.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- SETTINGS MODAL -->
+    <dialog id="settingsDialog" class="dialog">
+      <form method="dialog" class="dialog-card">
+        <div class="dialog-head">
+          <h2>Pengaturan Suara</h2>
+          <button class="icon-btn" value="close" aria-label="Tutup" type="submit">×</button>
+        </div>
+
+        <div class="dialog-body">
+          <div class="field">
+            <label for="voiceSelect">Pilih Voice</label>
+            <select id="voiceSelect"></select>
+            <div class="hint">Tips: pilih voice bahasa Indonesia (biasanya bertanda “id-ID”).</div>
+          </div>
+
+          <div class="field">
+            <label for="rateRange">Kecepatan Bicara: <span id="rateLabel">1.0</span>x</label>
+            <input id="rateRange" type="range" min="0.7" max="1.2" step="0.05" value="1.0" />
+          </div>
+
+          <div class="field">
+            <label for="pitchRange">Nada: <span id="pitchLabel">1.0</span></label>
+            <input id="pitchRange" type="range" min="0.8" max="1.2" step="0.05" value="1.0" />
+          </div>
+
+          <div class="field row">
+            <button id="btnTestVoice" class="btn secondary" type="button">Tes Suara</button>
+            <button class="btn" type="submit" value="ok">Simpan</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- GAME MODAL (ala Educandy) -->
+    <dialog id="gameDialog" class="dialog">
+      <div class="dialog-card game-dialog-card">
+        <div class="dialog-head">
+          <div>
+            <h2 id="gameTitle">Game</h2>
+            <div class="hint" id="gameSubtitle">Pilih game untuk latihan</div>
+          </div>
+          <button id="btnCloseGame" class="icon-btn" aria-label="Tutup" type="button">×</button>
+        </div>
+        <div class="dialog-body">
+          <div id="gameStage"></div>
+          <div class="field row game-footer">
+            <button id="btnGameHow" class="btn ghost" type="button">Cara Main</button>
+            <button id="btnGameRestart" class="btn secondary" type="button">Ulang</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <canvas id="fxCanvas" class="fx-canvas" aria-hidden="true"></canvas>
+    <script src="./app.js"></script>
+  </body>
+</html>
